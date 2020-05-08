@@ -9,15 +9,28 @@ public:
         this->_pins = pins;
     }
 
+    void reverse() {
+        reverseArray(this->_pins, 0, 5);
+    }
+
+    void reverseArray(int *arr, int start, int end) {
+        int temp;
+        while (start < end) {
+            temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        }
+    }
+
     void show() {
-        Serial.println("start::show");
         for (int a = 0; a < 6; a++) {
-            Serial.println((String) "pin::" + this->_pins[a]);
+            delay(500);
             digitalWrite(this->_pins[a], HIGH);
             delay(500);
             digitalWrite(this->_pins[a], LOW);
         }
-        Serial.println("end::show");
     }
 };
 
@@ -32,23 +45,9 @@ void setup() {
 }
 
 void loop() {
-////    digitalWrite(2, HIGH);
-////    Serial.write("High \n");
-////    delay(1000);
-////    digitalWrite(2, LOW);
-////    Serial.write("Low \n");
-////    Serial.write("### \n");
-
-
-//    for (int a = 0; a < 6; a++) {
-//        Serial.println(pin[a]);
-//        Serial.println("##");
-//        digitalWrite(pin[a], HIGH);
-//        delay(1000);
-//        digitalWrite(pin[a], LOW);
-//        delay(500);
-//    }
-
     bar.show();
-
+    bar.show();
+    bar.reverse();
+    bar.show();
+    bar.show();
 }
