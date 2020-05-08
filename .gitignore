@@ -1,6 +1,6 @@
-./idea/*
-/cmake-build-debug/*
-/cmake/*
+.idea
+cmake-build-debug/*
+cmake/*
 CMakeCache.txt
 CMakeFiles
 CMakeScripts
